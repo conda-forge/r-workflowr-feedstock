@@ -1,4 +1,4 @@
-{% set version = '1.0.1' %}
+{% set version = '1.1.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/workflowr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/workflowr/workflowr_{{ version }}.tar.gz
-  sha256: 7cd238f8a00a0734a1d5547c64d3e6b0fde9ebdcc120d03226c67c780370f97c
+  sha256: 020f8111e09ef0129ddac3d7e57079ac750fffc5ead50e9c2c6b9a556abc7762
 
 build:
   noarch: generic
@@ -24,15 +24,16 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
     - r-r.utils
     - r-callr
     - r-getpass
-    - r-git2r <=0.21.0
+    - r-git2r
     - r-glue
-    - r-knitr
+    - r-knitr >=1.18
     - r-rmarkdown >=1.7
     - r-rprojroot
     - r-rstudioapi
@@ -45,9 +46,9 @@ requirements:
     - r-r.utils
     - r-callr
     - r-getpass
-    - r-git2r <=0.21.0
+    - r-git2r
     - r-glue
-    - r-knitr
+    - r-knitr >=1.18
     - r-rmarkdown >=1.7
     - r-rprojroot
     - r-rstudioapi
