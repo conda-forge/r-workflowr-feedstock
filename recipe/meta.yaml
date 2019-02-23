@@ -1,4 +1,4 @@
-{% set version = '1.1.1' %}
+{% set version = '1.2.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,17 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: workflowr_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/workflowr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/workflowr/workflowr_{{ version }}.tar.gz
-  sha256: 020f8111e09ef0129ddac3d7e57079ac750fffc5ead50e9c2c6b9a556abc7762
+  sha256: e4937cc7129d7af84a03ba1b4b0b8ecdc511984d22d8e51b2a5931ef5ee9a05e
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1000
-
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,11 +23,10 @@ build:
 requirements:
   build:
     - {{posix}}zip               # [win]
-
   host:
     - r-base
-    - r-r.utils
     - r-callr
+    - r-fs >=1.2.4
     - r-getpass
     - r-git2r
     - r-glue
@@ -40,11 +37,10 @@ requirements:
     - r-stringr >=1.1.0
     - r-whisker
     - r-yaml
-
   run:
     - r-base
-    - r-r.utils
     - r-callr
+    - r-fs >=1.2.4
     - r-getpass
     - r-git2r
     - r-glue
@@ -64,15 +60,36 @@ test:
 about:
   home: https://github.com/jdblischak/workflowr
   license: MIT
-  summary: Combines literate programming ('knitr' and 'rmarkdown') and version control ('Git',
-    via 'git2r') to generate a website containing time-stamped, versioned, and documented
-    results.
+  summary: Provides a workflow for your analysis projects by combining literate programming ('knitr'
+    and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website
+    containing time-stamped, versioned, and documented results.
   license_family: MIT
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
+    - conda-forge/r
+
+# Package: workflowr
+# Type: Package
+# Title: A Framework for Reproducible and Collaborative Data Science
+# Date: 2019-02-13
+# Version: 1.2.0
+# Authors@R: c( person("John", "Blischak", role = c("aut", "cre"), email = "jdblischak@uchicago.edu", comment = c(ORCID = "0000-0003-2634-9879")), person("Peter", "Carbonetto", role = c("aut"), comment = c(ORCID = "0000-0003-1144-6780")), person("Matthew", "Stephens", role = c("aut"), comment = c(ORCID = "0000-0001-5397-9257")), person("Luke", "Zappia", role = c("ctb"), comment = "Instructions for hosting with GitLab"), person("Pierre", "Formont", role = c("ctb"), comment = "Support for hosting with Shiny Server"), person("Tim", "Trice", role = c("ctb"), comment = "Instructions for sharing common code"))
+# Description: Provides a workflow for your analysis projects by combining literate programming ('knitr' and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website containing time-stamped, versioned, and documented results.
+# URL: https://github.com/jdblischak/workflowr
+# BugReports: https://github.com/jdblischak/workflowr/issues
+# Depends: R (>= 3.2.5)
+# License: MIT + file LICENSE
+# Encoding: UTF-8
+# LazyData: true
+# Imports: callr, fs (>= 1.2.4), getPass, git2r, glue, knitr (>= 1.18), methods, rmarkdown (>= 1.7), rprojroot, rstudioapi, stringr (>= 1.1.0), tools, utils, whisker, yaml
+# RoxygenNote: 6.1.1
+# Suggests: covr, devtools, testthat, withr
+# VignetteBuilder: knitr
+# SystemRequirements: pandoc (>= 1.12.3) - http://pandoc.org
+# NeedsCompilation: no
+# Packaged: 2019-02-14 03:05:29 UTC; jdb-work
+# Author: John Blischak [aut, cre] (<https://orcid.org/0000-0003-2634-9879>), Peter Carbonetto [aut] (<https://orcid.org/0000-0003-1144-6780>), Matthew Stephens [aut] (<https://orcid.org/0000-0001-5397-9257>), Luke Zappia [ctb] (Instructions for hosting with GitLab), Pierre Formont [ctb] (Support for hosting with Shiny Server), Tim Trice [ctb] (Instructions for sharing common code)
+# Maintainer: John Blischak <jdblischak@uchicago.edu>
+# Repository: CRAN
+# Date/Publication: 2019-02-14 09:20:04 UTC
