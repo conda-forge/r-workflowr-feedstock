@@ -11,7 +11,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Combines literate programming ('knitr' and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website containing time-stamped, versioned, and documented results.
+Summary: Provides a workflow for your analysis projects by combining literate programming ('knitr' and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website containing time-stamped, versioned, and documented results.
 
 
 
@@ -113,9 +113,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@bgruening](https://github.com/bgruening/)
-* [@cbrueffer](https://github.com/cbrueffer/)
-* [@daler](https://github.com/daler/)
-* [@jdblischak](https://github.com/jdblischak/)
-* [@johanneskoester](https://github.com/johanneskoester/)
+* [@conda-forge/r](https://github.com/conda-forge/r/)
 
