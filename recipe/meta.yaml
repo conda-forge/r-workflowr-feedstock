@@ -1,4 +1,4 @@
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/workflowr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/workflowr/workflowr_{{ version }}.tar.gz
-  sha256: d78ccba146ffe944151918f4b16820e8204d68abbf1ee924daff6ce3b0aa3960
+  sha256: 91e73bf2ac1775829121e6ac44ee8ab4e259c561c34f809678cc71a6192e5595
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -64,12 +64,11 @@ test:
 about:
   home: https://github.com/jdblischak/workflowr
   license: MIT
-  summary: Provides a workflow for your analysis projects by combining literate programming ('knitr'
-    and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website
-    containing time-stamped, versioned, and documented results.
+  summary: Provides a workflow for your analysis projects by combining literate programming ('knitr' and 'rmarkdown') and version control ('Git', via 'git2r') to
+    generate a website containing time-stamped, versioned, and documented results.
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
