@@ -1,11 +1,11 @@
-About r-workflowr
-=================
+About r-workflowr-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-workflowr-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/workflowr/workflowr
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-workflowr-feedstock/blob/main/LICENSE.txt)
 
 Summary: Provides a workflow for your analysis projects by combining literate programming ('knitr' and 'rmarkdown') and version control ('Git', via 'git2r') to generate a website containing time-stamped, versioned, and documented results.
 
